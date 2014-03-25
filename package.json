@@ -12,5 +12,8 @@
   },
   "repository": "",
   "author": "",
-  "license": "BSD"
+  "license": "BSD",
+  "dependencies": {
+    "chai": "~1.9.1"
+  }
 }
