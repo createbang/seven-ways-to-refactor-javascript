@@ -8,7 +8,7 @@ chai.use(require('sinon-chai'));
 var accounts;
 var callback;
 
-describe('AbandonedTrialQuery', function() {
+describe('Query', function() {
 
   beforeEach( function() {
     accounts = [

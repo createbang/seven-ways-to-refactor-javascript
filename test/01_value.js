@@ -6,7 +6,7 @@ var expect = require('chai').expect;
 var rating1;
 var rating2;
 
-describe('Rating', function() {
+describe('Value', function() {
 
   describe('by direct constructor', function() {
 

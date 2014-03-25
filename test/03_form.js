@@ -9,7 +9,7 @@ chai.use(require('sinon-chai'));
 var signup;
 var params;
 
-describe('UserAuthenticator', function() {
+describe('Form', function() {
 
   beforeEach( function() {
     params = { name: 'John Smith', email: 'foo@bar.com', companyName: 'Acme Inc.' };

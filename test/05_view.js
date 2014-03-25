@@ -5,7 +5,7 @@ var expect = require('chai').expect;
 
 var review;
 
-describe('Review', function() {
+describe('View', function() {
 
   beforeEach( function() {
     data = {

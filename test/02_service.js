@@ -5,7 +5,7 @@ var expect = require('chai').expect;
 
 var user;
 
-describe('UserAuthenticator', function() {
+describe('Service', function() {
 
   beforeEach( function() {
     user = { unencryptedPassword: 'f00b4r' };
