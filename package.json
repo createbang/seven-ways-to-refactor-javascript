@@ -1,19 +1,34 @@
 {
-  "name": "7refactor",
+  "name": "seven-patterns",
   "version": "0.0.0",
-  "description": "test stuff",
-  "main": "index.js",
+  "description": "Series of posts demonstrates these concepts in the JavaScript environment; they are no less applicable to data models in JavaScript, and are equally as valuable. Each week, one of the seven patterns will be explained.",
+  "main": "README.md",
   "directories": {
     "example": "examples",
     "test": "test"
   },
+  "keywords": [
+    "javascript",
+    "patterns",
+    "refactor"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npm install",
+    "value": "./scripts/test.js value",
+    "service": "./scripts/test.js service",
+    "form": "./scripts/test.js form",
+    "query": "./scripts/test.js query",
+    "policy": "./scripts/test.js policy",
+    "decorator": "./scripts/test.js decorator"
   },
-  "repository": "",
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/createbang/seven-patterns.git"
+  },
+  "author": "Michael Phillips",
   "license": "BSD",
   "dependencies": {
+    "mocha": "^1.21.5",
     "chai": "~1.9.1",
     "sinon": "~1.9.0",
     "sinon-chai": "~2.5.0",
