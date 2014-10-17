@@ -1,27 +1,28 @@
-var AbandonedTrialQuery = require('../examples/04_query');
-var chai = require('chai');
-var expect = chai.expect;
-var sinon = require('sinon');
-chai.use(require('sinon-chai'));
+var expect = require('chai').expect;
+var CurrentlyPassingStudentsQuery = require('../examples/04_query');
 
+describe('CurrentlyPassingStudentsQuery', function(){
+  var currentlyPassingStudents;
+  var err;
 
-var accounts;
-var callback;
-
-describe('Query', function() {
-
-  beforeEach( function() {
-    accounts = [
-      { plan: 'trial', invitesCount: 2 },
-      { plan: null, invitesCount: 0 },
-      { plan: 'trial', invitesCount: 1 }
-    ];
+  before(function( done ){
+    // first build all records in the necessary 
+    // tables for testing (steps not shown)
+    // then run the Query Object
+    var currentlyPassingStudents = new CurrentlyPassingStudentsQuery()
+    currentlyPassingStudents.run()
+      .then( function( _currentlyPassingStudents ) {
+        currentlyPassingStudents = _currentlyPassingStudents;
+        done();
+      })
+      .fail( function( _err ) {
+        err = _err;
+        done();
+      });
   });
 
-  it('returns the correct set from the collection', function() {
-    var spy = sinon.spy();
-    new AbandonedTrialQuery( accounts ).findEach( spy );
-    expect( spy ).to.have.been.calledOnce;
+  it('returns the correct set of records', function(){
+    expect( currentlyPassingStudents ).to.have.length( expectedLength ); // however many you are expecting
   });
 
-})
+});
