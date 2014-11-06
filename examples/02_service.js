@@ -1,15 +1,35 @@
-var UserAuthenticator = function( user ) {
-  this.user = user;
+var _ = require('underscore');
+
+var DetermineStudentPassingStatus = function( student ) {
+  this.student = student;
 }
 
-UserAuthenticator.prototype.authenticate = function( unencryptedPassword ) {
-  if ( !unencryptedPassword ) return false;
+DetermineStudentPassingStatus.prototype = _.extend( DetermineStudentPassingStatus.prototype, {
 
-  if ( this.user.unencryptedPassword === unencryptedPassword ) {
-    return this.user;
-  } else {
-    return false;
+  minimumPassingPercentage: 0.6,
+
+  fromAssignments: function( assignments ) {
+    return _.compose(
+      this.determinePassingStatus.bind( this ),
+      this.averageAssignmentGrade,
+      this.extractAssignmentGrades
+    )( assignments );
+  },
+
+  extractAssignmentGrades: function( assignments ) {
+    return _.pluck( assignments, 'grade' );
+  },
+
+  averageAssignmentGrade: function( grades ) {
+    return _.reduce(grades, function( memo, grade ) {
+      return memo + grade.letter;
+    }, 0) / grades.length;
+  },
+
+  determinePassingStatus: function( averageGrade ) {
+    return averageGrade >= this.minimumPassingPercentage;
   }
-}
 
-module.exports = UserAuthenticator;
+});
+
+module.exports = DetermineStudentPassingStatus;

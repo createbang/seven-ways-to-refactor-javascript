@@ -1,9 +1,6 @@
 var createCompany = function( params ) { return params; }; //no-op
 var createUser =    function( params ) { return params; }; //no-op
 
-
-
-
 var Signup = function( params ) {
   this.params = params;
 }
