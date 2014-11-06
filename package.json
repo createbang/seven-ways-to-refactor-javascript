@@ -18,6 +18,7 @@
     "service": "./scripts/test.js service",
     "form": "./scripts/test.js form",
     "query": "./scripts/test.js query",
+    "view": "./scripts/test.js view",
     "policy": "./scripts/test.js policy",
     "decorator": "./scripts/test.js decorator"
   },

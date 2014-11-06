@@ -9,7 +9,7 @@ describe('CurrentlyPassingStudentsQuery', function(){
     // first build all records in the necessary 
     // tables for testing (steps not shown)
     // then run the Query Object
-    var currentlyPassingStudents = new CurrentlyPassingStudentsQuery()
+    var currentlyPassingStudents = new CurrentlyPassingStudentsQuery();
     currentlyPassingStudents.run()
       .then( function( _currentlyPassingStudents ) {
         currentlyPassingStudents = _currentlyPassingStudents;
